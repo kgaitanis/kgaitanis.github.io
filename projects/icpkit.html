@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>IcpKit — Kosta Gaitanis</title><meta name="description" content="IcpKit case study — native Swift protocol and cryptography engineering for the Internet Computer."><link rel="stylesheet" href="../assets/styles.css"></head><body>
-<header class="site-header"><a class="brand" href="../index.html">Kosta Gaitanis</a><nav><a href="../index.html#work">Work</a><a href="../index.html#profile">Profile</a><a href="../index.html#contact">Contact</a></nav></header>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>IcpKit - Konstantinos Gaitanis</title><meta name="description" content="IcpKit case study - native Swift protocol and cryptography engineering for the Internet Computer."><link rel="stylesheet" href="../assets/styles.css"></head><body>
+<header class="site-header"><a class="brand" href="../index.html">Konstantinos Gaitanis</a><nav><a href="../index.html#work">Work</a><a href="../index.html#profile">Profile</a><a href="../index.html#contact">Contact</a></nav></header>
 <main>
-<section class="shell case-hero"><p class="eyebrow">Case Study · IcpKit</p><h1>Making a blockchain protocol usable from native Swift.</h1><p class="lede">IcpKit is an open-source Swift package for communicating with the Internet Computer. It turns low-level serialization, cryptography, identities, request signing and canister communication into a native Swift API suitable for real products.</p><div class="case-meta"><a href="https://github.com/kgaitanis/IcpKit">View source on GitHub ↗</a><span>Open source</span><span>Production use</span><span>DFINITY Developer Grant support</span></div></section>
+<section class="shell case-hero"><div class="case-logo-row"><div class="case-logo"><img src="../assets/images/logos/internet-computer.svg" alt="Internet Computer logo" width="120" height="60"></div><div class="case-logo case-logo-wide"><img src="../assets/images/logos/icpkit.webp" alt="IcpKit logo" width="236" height="86"></div></div><p class="eyebrow">Case Study · IcpKit</p><h1>Making a blockchain protocol usable from native Swift.</h1><p class="lede">IcpKit is an open-source Swift package for communicating with the Internet Computer. It provides Swift APIs for Candid and CBOR serialization, identities, request signing and canister calls.</p><div class="case-meta"><a href="https://github.com/kgaitanis/IcpKit">View source on GitHub ↗</a><span>Open source</span><span>Production use</span><span>DFINITY Developer Grant support</span></div></section>
 <section class="shell section case-grid">
   <aside class="case-sidebar"><h2>At a glance</h2><div class="tags"><span>Swift</span><span>Cryptography</span><span>Candid</span><span>CBOR</span><span>Blockchain</span><span>Code Generation</span></div></aside>
   <div class="case-copy">
     <h2>The engineering problem</h2>
-    <p class="big">A mobile application should not need to understand every byte-level detail of a blockchain protocol just to perform a query, sign a request or call a canister.</p>
-    <p>IcpKit creates that boundary for Swift. The package maps Internet Computer concepts into Swift types and APIs while handling the serialization, cryptographic and transport details underneath.</p>
+    <p class="big">Without a dedicated library, protocol-level details would leak into every application feature that needed to perform a query, sign a request or call a canister.</p>
+    <p>IcpKit keeps those details in one place. The package maps Internet Computer concepts into Swift types and APIs while handling serialization, signing and transport underneath.</p>
 
     <h3>What the package handles</h3>
     <div class="engineering-grid">
@@ -20,14 +20,16 @@
       <div class="engineering-item"><h4>Ledger support</h4><p>Higher-level primitives needed by applications that interact with Internet Computer assets and ledgers.</p></div>
     </div>
 
-    <h3>Why it belongs in this portfolio</h3>
-    <p>This project exposes a different kind of engineering depth from a mobile application. The hard part is not UI; it is building trustworthy abstractions over binary formats, protocol rules, cryptography and distributed-system boundaries — then making those abstractions ergonomic for Swift developers.</p>
-    <p>It is also inspectable work: the source, history and releases are public, and the package has been used by real crypto products rather than existing solely as a demonstration project.</p>
+    <h3>Real-world production use</h3>
+    <p>IcpKit is used in the production apps of Bity and Tangem, the company behind the NFC card hardware wallet. These two integrations were developed independently of each other.</p>
 
-    <h3>Origin and attribution</h3>
+    <h3>Design approach</h3>
+    <p>I wanted application code to work with Swift types rather than serialized protocol structures. IcpKit therefore keeps Candid, CBOR, signing and transport concerns behind a smaller API. The package source and history are public, so the implementation can be inspected directly.</p>
+
+    <h3>How the project started</h3>
     <p>I was the main developer of IcpKit. The project was originally developed while I was at Bity SA with support from the DFINITY Foundation Developer Grant Program. The repository is maintained under my GitHub account.</p>
 
-    <div class="evidence"><h3>Public evidence</h3><p><a href="https://github.com/kgaitanis/IcpKit">github.com/kgaitanis/IcpKit ↗</a></p><p class="muted">For the final version, we can add a small architecture diagram showing the path from Swift models → Candid/CBOR → signing/identity → replica/canister communication.</p></div>
+    <div class="architecture-flow protocol-flow" aria-label="Bidirectional IcpKit protocol flow"><div><strong>Swift API</strong><span>Types · generated interfaces</span></div><b>↔</b><div class="core"><strong>Protocol layer</strong><span>Candid · CBOR · Identity · Signing</span></div><b>↔</b><div><strong>Internet Computer</strong><span>Requests · Canisters · Ledgers</span></div></div><div class="evidence"><h3>Public source</h3><p><a href="https://github.com/kgaitanis/IcpKit">github.com/kgaitanis/IcpKit ↗</a></p></div>
     <a class="back-link" href="../index.html#work">← Back to selected work</a>
   </div>
 </section></main>
