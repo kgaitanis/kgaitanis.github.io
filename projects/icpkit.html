@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>IcpKit — Kosta Gaitanis</title><meta name="description" content="IcpKit case study — native Swift protocol and cryptography engineering for the Internet Computer."><link rel="stylesheet" href="../assets/styles.css"></head><body>
+<header class="site-header"><a class="brand" href="../index.html">Kosta Gaitanis</a><nav><a href="../index.html#work">Work</a><a href="../index.html#profile">Profile</a><a href="../index.html#contact">Contact</a></nav></header>
+<main>
+<section class="shell case-hero"><p class="eyebrow">Case Study · IcpKit</p><h1>Making a blockchain protocol usable from native Swift.</h1><p class="lede">IcpKit is an open-source Swift package for communicating with the Internet Computer. It turns low-level serialization, cryptography, identities, request signing and canister communication into a native Swift API suitable for real products.</p><div class="case-meta"><a href="https://github.com/kgaitanis/IcpKit">View source on GitHub ↗</a><span>Open source</span><span>Production use</span><span>DFINITY Developer Grant support</span></div></section>
+<section class="shell section case-grid">
+  <aside class="case-sidebar"><h2>At a glance</h2><div class="tags"><span>Swift</span><span>Cryptography</span><span>Candid</span><span>CBOR</span><span>Blockchain</span><span>Code Generation</span></div></aside>
+  <div class="case-copy">
+    <h2>The engineering problem</h2>
+    <p class="big">A mobile application should not need to understand every byte-level detail of a blockchain protocol just to perform a query, sign a request or call a canister.</p>
+    <p>IcpKit creates that boundary for Swift. The package maps Internet Computer concepts into Swift types and APIs while handling the serialization, cryptographic and transport details underneath.</p>
+
+    <h3>What the package handles</h3>
+    <div class="engineering-grid">
+      <div class="engineering-item"><h4>Candid</h4><p>Binary serialization and deserialization, Swift Codable integration and parsing of interface definitions.</p></div>
+      <div class="engineering-item"><h4>CBOR</h4><p>Encoding the protocol structures required to communicate correctly with Internet Computer nodes.</p></div>
+      <div class="engineering-item"><h4>Cryptographic identities</h4><p>Signing, signature verification and self-authenticating principals for secure requests.</p></div>
+      <div class="engineering-item"><h4>Canister communication</h4><p>Construction and execution of signed query/update calls while presenting a Swift-native API.</p></div>
+      <div class="engineering-item"><h4>Source generation</h4><p>Generation of Swift interfaces from Candid definitions to reduce protocol boilerplate and errors.</p></div>
+      <div class="engineering-item"><h4>Ledger support</h4><p>Higher-level primitives needed by applications that interact with Internet Computer assets and ledgers.</p></div>
+    </div>
+
+    <h3>Why it belongs in this portfolio</h3>
+    <p>This project exposes a different kind of engineering depth from a mobile application. The hard part is not UI; it is building trustworthy abstractions over binary formats, protocol rules, cryptography and distributed-system boundaries — then making those abstractions ergonomic for Swift developers.</p>
+    <p>It is also inspectable work: the source, history and releases are public, and the package has been used by real crypto products rather than existing solely as a demonstration project.</p>
+
+    <h3>Origin and attribution</h3>
+    <p>I was the main developer of IcpKit. The project was originally developed while I was at Bity SA with support from the DFINITY Foundation Developer Grant Program. The repository is maintained under my GitHub account.</p>
+
+    <div class="evidence"><h3>Public evidence</h3><p><a href="https://github.com/kgaitanis/IcpKit">github.com/kgaitanis/IcpKit ↗</a></p><p class="muted">For the final version, we can add a small architecture diagram showing the path from Swift models → Candid/CBOR → signing/identity → replica/canister communication.</p></div>
+    <a class="back-link" href="../index.html#work">← Back to selected work</a>
+  </div>
+</section></main>
+</body></html>

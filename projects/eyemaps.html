@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>eyeMaps — Kosta Gaitanis</title><meta name="description" content="eyeMaps case study — real-time 3D mapping, geospatial data, sensor fusion and mobile graphics."><link rel="stylesheet" href="../assets/styles.css"></head><body>
+<header class="site-header"><a class="brand" href="../index.html">Kosta Gaitanis</a><nav><a href="../index.html#work">Work</a><a href="../index.html#profile">Profile</a><a href="../index.html#contact">Contact</a></nav></header>
+<main>
+<section class="shell case-hero"><p class="eyebrow">Case Study · eyeMaps</p><h1>A map rendered from where you stand, not from above.</h1><p class="lede">I conceived and engineered eyeMaps as a mobile mapping system that reconstructed the terrain and geographic features in front of the user from map data, elevation models, location and device orientation.</p><div class="case-meta"><a href="https://eyemaps.org">eyemaps.org ↗</a><span>Founder</span><span>Principal Engineer</span><span>iOS & Android</span></div></section>
+<section class="shell section case-grid">
+  <aside class="case-sidebar"><h2>At a glance</h2><div class="tags"><span>OpenGL</span><span>Qt/QML</span><span>3D Terrain</span><span>OpenStreetMap</span><span>GPS</span><span>Sensor Fusion</span><span>Offline Data</span></div></aside>
+  <div class="case-copy">
+    <h2>The idea</h2>
+    <p class="big">Traditional maps make the user mentally translate a top-down abstraction into the landscape around them. eyeMaps explored the inverse: render the map from the user's actual viewpoint.</p>
+    <p>That meant treating the phone as an observer inside a 3D geographic model. Position came from GPS; viewing direction came from device sensors; terrain came from digital elevation data; geographic features came from OpenStreetMap; and the renderer had to keep all of it synchronized while the user moved.</p>
+
+    <h3>Engineering scope</h3>
+    <div class="engineering-grid">
+      <div class="engineering-item"><h4>3D terrain</h4><p>Transforming elevation data into a renderable landscape around the user's position.</p></div>
+      <div class="engineering-item"><h4>Geospatial transforms</h4><p>Mapping real-world coordinates and geographic features into a local 3D coordinate system.</p></div>
+      <div class="engineering-item"><h4>Device orientation</h4><p>Combining GPS, accelerometer, gyroscope and magnetometer data to align the virtual viewpoint with the physical world.</p></div>
+      <div class="engineering-item"><h4>Real-time rendering</h4><p>OpenGL rendering synchronized with mobile UI while maintaining interactive performance.</p></div>
+      <div class="engineering-item"><h4>Offline operation</h4><p>Downloading map and terrain regions in advance so the core experience remained useful outside network coverage.</p></div>
+      <div class="engineering-item"><h4>Cross-platform architecture</h4><p>Qt/QML and native platform integration across both iOS and Android, sharing the difficult core while respecting platform needs.</p></div>
+    </div>
+
+    <h3>Why it matters</h3>
+    <p>eyeMaps is the clearest example in my work of building a difficult system from first principles. Graphics, coordinate systems, sensors, geographic data, mobile performance, UI and product behavior could not be solved independently; the product only worked if they behaved as one coherent system.</p>
+    <p>The project was also publicly profiled by Qt, including the architecture combining Qt Quick, native UI and OpenGL and the need to synchronize UI and the 3D model at 60 fps with sub-pixel precision.</p>
+
+    <div class="evidence"><h3>Public evidence</h3><p><a href="https://eyemaps.org">eyeMaps project site ↗</a></p><p><a href="https://www.qt.io/development/eyemaps-built-with-qt">Qt case study ↗</a></p><p class="muted">The next revision should add original screenshots and a visual pipeline diagram. Those will make this the portfolio's visual centerpiece.</p></div>
+    <a class="back-link" href="../index.html#work">← Back to selected work</a>
+  </div>
+</section></main>
+</body></html>
