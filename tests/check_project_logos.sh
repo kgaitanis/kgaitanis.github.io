@@ -23,7 +23,9 @@ eyemaps_width=$(sips -g pixelWidth assets/images/logos/eyemaps.webp 2>/dev/null 
 eyemaps_height=$(sips -g pixelHeight assets/images/logos/eyemaps.webp 2>/dev/null | awk '/pixelHeight/ { print $2 }')
 test "$eyemaps_width" -gt $((eyemaps_height * 3))
 check_logo projects/crealogix.html assets/images/logos/crealogix.webp "CREALOGIX logo"
-check_logo projects/bity.html assets/images/logos/bity.webp "Bity logo"
+check_logo projects/bity.html assets/images/logos/bity.svg "Bity logo"
+grep -Fq 'class="case-logo case-logo-wordmark"' projects/bity.html
+grep -Fq 'fill="#2563eb"' assets/images/logos/bity.svg
 check_logo projects/icpkit.html assets/images/logos/internet-computer.svg "Internet Computer logo"
 check_logo projects/icpkit.html assets/images/logos/icpkit.webp "IcpKit logo"
 grep -Fq 'class="case-logo-row"' projects/icpkit.html
@@ -31,10 +33,10 @@ grep -Fq 'class="case-logo-row"' projects/icpkit.html
 grep -Fq ".case-logo" assets/styles.css
 grep -Fq ".case-logo-row" assets/styles.css
 
-grep -Fq 'class="project-title"' index.html
+grep -Fq 'class="project-title' index.html
 grep -Fq 'src="assets/images/logos/eyemaps.webp"' index.html
 grep -Fq 'src="assets/images/logos/crealogix.webp"' index.html
-grep -Fq 'src="assets/images/logos/bity.webp"' index.html
+grep -Fq 'src="assets/images/logos/bity.svg"' index.html
 grep -Fq 'src="assets/images/logos/internet-computer.svg"' index.html
 grep -Fq ".project-title" assets/styles.css
 grep -Fq '<a class="project-card hero-project" href="projects/eyemaps.html">' index.html
