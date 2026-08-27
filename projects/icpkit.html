@@ -2,36 +2,36 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>IcpKit - Konstantinos Gaitanis</title><meta name="description" content="IcpKit case study - native Swift protocol and cryptography engineering for the Internet Computer."><link rel="icon" href="../assets/images/kg-icon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/styles.css"></head><body>
 <header class="site-header"><a class="brand" href="../index.html"><img src="../assets/images/kg-icon.svg" alt="" width="32" height="32">Konstantinos Gaitanis</a><nav><a href="../index.html#work">Work</a><a href="../index.html#profile">Profile</a><a href="../index.html#contact">Contact</a></nav></header>
 <main>
-<section class="shell case-hero"><div class="case-logo-row"><div class="case-logo"><img src="../assets/images/logos/internet-computer.svg" alt="Internet Computer logo" width="120" height="60"></div><div class="case-logo case-logo-wide"><img src="../assets/images/logos/icpkit.webp" alt="IcpKit logo" width="236" height="86"></div></div><p class="eyebrow">Case Study · IcpKit</p><h1>Making a blockchain protocol usable from native Swift.</h1><p class="lede">IcpKit is an open-source Swift package for communicating with the Internet Computer. It provides Swift APIs for Candid and CBOR serialization, identities, request signing and canister calls.</p><div class="case-meta"><span class="case-years">2022–2025</span><span class="case-proof">73% unit-test coverage</span><a href="https://github.com/kgaitanis/IcpKit">View source on GitHub ↗</a><span>Open source</span><span>Production use</span><span>DFINITY Developer Grant support</span></div></section>
+<section class="shell case-hero"><div class="case-logo-row"><div class="case-logo"><img src="../assets/images/logos/internet-computer.svg" alt="Internet Computer logo" width="120" height="60"></div><div class="case-logo case-logo-wide"><img src="../assets/images/logos/icpkit.webp" alt="IcpKit logo" width="236" height="86"></div></div><p class="eyebrow">Case Study · IcpKit</p><h1>Making a blockchain protocol usable from native Swift.</h1><p class="lede">IcpKit is an open-source Swift package for communicating with the Internet Computer. It provides Swift APIs for Candid and CBOR serialization, identities, request signing and canister calls.</p><div class="case-meta"><span class="case-years">2022–Present</span><span class="case-proof">~95% Swift unit-test coverage</span><a href="https://github.com/kgaitanis/IcpKit">View source on GitHub ↗</a><a href="https://swiftpackageindex.com/kgaitanis/IcpKit">Swift Package Index ↗</a><span>Open source</span><span>Production use</span><span>DFINITY Developer Grant support</span></div></section>
 <section class="shell section case-grid">
   <aside class="case-sidebar"><h2>At a glance</h2><div class="tags"><span>Swift</span><span>Cryptography</span><span>Candid</span><span>CBOR</span><span>Blockchain</span><span>Code Generation</span><span>Unit Testing</span></div></aside>
   <div class="case-copy">
-    <h2>The engineering problem</h2>
-    <p class="big">Without a dedicated library, protocol-level details would leak into every application feature that needed to perform a query, sign a request or call a canister.</p>
-    <p>IcpKit keeps those details in one place. The package maps Internet Computer concepts into Swift types and APIs while handling serialization, signing and transport underneath.</p>
+    <h2>The missing native protocol layer</h2>
+    <p class="big">No comparable native iOS library existed for the Internet Computer. An application otherwise had to implement serialization, identities, request signing, transport and ledger behavior before it could perform even a basic query or transfer.</p>
+    <p>Without a dedicated library, those protocol details would leak into every feature that needed to read state, sign a request or call a canister.</p>
 
-    <h3>What the package handles</h3>
+    <h3>Key architectural decision: a Swift-native boundary</h3>
+    <p>IcpKit maps Internet Computer concepts into Swift types and APIs while keeping Candid, CBOR, signing and transport behind a smaller interface. Application code works with native types rather than serialized protocol structures.</p>
+
+    <h3>Protocol and ledger implementation</h3>
     <div class="engineering-grid">
       <div class="engineering-item"><h4>Candid</h4><p>Binary serialization and deserialization, Swift Codable integration and parsing of interface definitions.</p></div>
       <div class="engineering-item"><h4>CBOR</h4><p>Encoding the protocol structures required to communicate correctly with Internet Computer nodes.</p></div>
       <div class="engineering-item"><h4>Cryptographic identities</h4><p>Signing, signature verification and self-authenticating principals for secure requests.</p></div>
       <div class="engineering-item"><h4>Canister communication</h4><p>Construction and execution of signed query/update calls while presenting a Swift-native API.</p></div>
       <div class="engineering-item"><h4>Source generation</h4><p>Generation of Swift interfaces from Candid definitions to reduce protocol boilerplate and errors.</p></div>
-      <div class="engineering-item"><h4>Ledger support</h4><p>Higher-level primitives needed by applications that interact with Internet Computer assets and ledgers.</p></div>
+      <div class="engineering-item"><h4>Ledger support</h4><p>Read and write support for ICRC-1 tokens, ICRC-2 approvals, ICRC-3 transaction history and ICRC-7 NFTs.</p></div>
     </div>
 
-    <h3>Testing the protocol layer</h3>
-    <p class="big">At the latest measurement, IcpKit had 73% code coverage, entirely through unit tests.</p>
-    <p>The test suite provides fast, repeatable feedback as the package evolves. Keeping these tests at the unit level makes protocol behavior deterministic and allows failures to be isolated without depending on external services.</p>
+    <h3>Developer experience</h3>
+    <p class="big">IcpKit's public examples show how an application can read an ICP balance and send ICP or other tokens within minutes, using only a few dozen lines of Swift.</p><p>Generated interfaces and Swift-native values keep protocol boilerplate out of application features, allowing developers to focus on product behavior rather than wire formats and request construction.</p>
 
-    <h3>Real-world production use</h3>
-    <p>IcpKit is used in the production apps of Bity and Tangem, the company behind the NFC card hardware wallet. These two integrations were developed independently of each other.</p>
+    <h3>Testing and production adoption</h3>
+    <p class="big">Unit tests cover approximately 95% of the Swift codebase. The repository-wide figure is 73% because it also includes a separately licensed, externally authored Rust component for signature verification, outside the scope of the Swift test suite.</p>
+    <p>Unit-level tests make protocol behavior deterministic, provide fast feedback and isolate failures without depending on external services.</p><p>IcpKit was independently adopted in the production apps of Bity and Tangem, the company behind the NFC credit card hardware wallet. These integrations demonstrated that the library worked beyond its original product context.</p>
 
-    <h3>Design approach</h3>
-    <p>I wanted application code to work with Swift types rather than serialized protocol structures. IcpKit therefore keeps Candid, CBOR, signing and transport concerns behind a smaller API. The package source and history are public, so the implementation can be inspected directly.</p>
-
-    <h3>How the project started</h3>
-    <p>I was the main developer of IcpKit. The project was originally developed while I was at Bity SA with support from the DFINITY Foundation Developer Grant Program. The repository is maintained under my GitHub account.</p>
+    <h3>Scope of ownership and project origin</h3>
+    <p>I created IcpKit and remain its principal developer, owning its API design, protocol implementation, code generation, testing and ongoing maintenance. The project began while I was at Bity SA with support from the DFINITY Foundation Developer Grant Program. Its source and history remain publicly inspectable under my GitHub account.</p>
 
     <div class="architecture-flow protocol-flow" aria-label="Bidirectional IcpKit protocol flow"><div><strong>Swift API</strong><span>Types · generated interfaces</span></div><b>↔</b><div class="core"><strong>Protocol layer</strong><span>Candid · CBOR · Identity · Signing</span></div><b>↔</b><div><strong>Internet Computer</strong><span>Requests · Canisters · Ledgers</span></div></div><div class="evidence"><h3>Public source</h3><p><a href="https://github.com/kgaitanis/IcpKit">github.com/kgaitanis/IcpKit ↗</a></p><p><a href="https://swiftpackageindex.com/kgaitanis/IcpKit">swiftpackageindex.com/kgaitanis/IcpKit ↗</a></p></div>
     <a class="back-link" href="../index.html#work">← Back to selected work</a>
