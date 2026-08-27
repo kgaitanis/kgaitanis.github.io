@@ -1,0 +1,19 @@
+name: Test portfolio
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out portfolio
+        uses: actions/checkout@v6
+
+      - name: Run tests
+        run: ./test.sh
